@@ -3,7 +3,7 @@ import { Service } from "./types";
 export const services: Service[] = [
   {
     id: "seo",
-    name: "SEO",
+    name: "🔎 SEO",
     price: 300,
     selected: false,
     description:
@@ -11,7 +11,7 @@ export const services: Service[] = [
   },
   {
     id: "ads",
-    name: "Advertising",
+    name: "📢 Advertising",
     price: 400,
     selected: false,
     description:
@@ -19,7 +19,7 @@ export const services: Service[] = [
   },
   {
     id: "web",
-    name: "Website",
+    name: "🌐 Website",
     price: 500,
     selected: false,
     description:

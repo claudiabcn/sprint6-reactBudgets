@@ -3,7 +3,7 @@ import BudgetCalculator from "./features/budgetCalculator/budgetCalculator";
 function App() {
   return (
     <div>
-    <BudgetCalculator />
+      <BudgetCalculator />
     </div>
   );
 }
