@@ -10,5 +10,5 @@ export interface Service {
 
 export interface ServiceCardProps {
   service: Service;
-  onChange: (id: string) => void;
+  onChange: (id: number) => void;
 }

@@ -2,11 +2,12 @@ import { useState } from "react";
 import { Service } from "../../config/types";
 import { services as initialServices } from "../../config/appData";
 import ServiceCard from "../../components/serviceCard";
+import { calculateTotal } from "../budgetCalculator/calculateTotal";
 
 function BudgetCalculator() {
   const [services, setServices] = useState<Service[]>(initialServices);
 
-  const handleServiceChange = (id: string) => {
+  const handleServiceChange = (id: number) => {
     setServices(
       services.map((service) =>
         service.id === id
@@ -28,6 +29,12 @@ function BudgetCalculator() {
             onChange={handleServiceChange}
           />
         ))}
+      </div>
+
+      <div className="mt-6 p-4 border-t">
+        <h3 className="text-xl font-semibold">
+        Total Budget: {calculateTotal(services)}€
+        </h3>
       </div>
     </div>
   );

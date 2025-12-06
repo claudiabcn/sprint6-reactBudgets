@@ -21,7 +21,7 @@ function ServiceCard({ service, onChange }: ServiceCardProps) {
           className="mt-1 w-5 h-5 cursor-pointer"
         />
       </div>
-    </div>
+      </div>
   );
 }
 
