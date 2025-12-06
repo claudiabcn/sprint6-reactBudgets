@@ -2,7 +2,7 @@ import { Service } from "./types";
 
 export const services: Service[] = [
   {
-    id: "seo",
+    id: 1,
     name: "🔎 SEO",
     price: 300,
     selected: false,
@@ -10,7 +10,7 @@ export const services: Service[] = [
       "Search engine optimization to increase organic visibility and attract quality traffic.",
   },
   {
-    id: "ads",
+    id: 2,
     name: "📢 Advertising",
     price: 400,
     selected: false,
@@ -18,7 +18,7 @@ export const services: Service[] = [
       "Management of paid campaigns (PPC) on platforms such as Google Ads and social media.",
   },
   {
-    id: "web",
+    id: 3,
     name: "🌐 Website",
     price: 500,
     selected: false,
