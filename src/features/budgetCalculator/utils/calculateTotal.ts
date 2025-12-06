@@ -1,4 +1,4 @@
-import { Service } from "../../config/types";
+import { Service } from "../../../config/types";
 
 export function calculateTotal(services: Service[]): number {
   let total = 0;
@@ -7,7 +7,7 @@ export function calculateTotal(services: Service[]): number {
     if (service.selected) {
       total += service.price;
 
-      if (service.id === 3 && service.pages && service.languages) {
+      if (service.id === "web" && service.pages && service.languages) {
         total += (service.pages + service.languages) * 30;
       }
     }

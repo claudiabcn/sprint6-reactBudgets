@@ -1,0 +1,40 @@
+import { useState } from "react";
+import { Service } from "../../../config/types";
+import { services as initialServices } from "../../../config/appData";
+
+export const useBudgetServices = () => {
+  const [services, setServices] = useState<Service[]>(initialServices);
+
+  const handleServiceChange = (id: string) => {
+    setServices(
+      services.map((service) =>
+        service.id === id
+          ? { ...service, selected: !service.selected }
+          : service
+      )
+    );
+  };
+
+  const handlePagesChange = (value: number) => {
+    setServices(
+      services.map((service) =>
+        service.id === "web" ? { ...service, pages: value } : service
+      )
+    );
+  };
+
+  const handleLanguagesChange = (value: number) => {
+    setServices(
+      services.map((service) =>
+        service.id === "web" ? { ...service, languages: value } : service
+      )
+    );
+  };
+
+  return {
+    services,
+    handleServiceChange,
+    handlePagesChange,
+    handleLanguagesChange,
+  };
+};

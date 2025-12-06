@@ -1,5 +1,5 @@
 export interface Service {
-  id: number;
+  id: string;
   name: string;
   price: number;
   selected: boolean;
@@ -10,5 +10,7 @@ export interface Service {
 
 export interface ServiceCardProps {
   service: Service;
-  onChange: (id: number) => void;
+  onChange: (id: string) => void;
+  onPagesChange?: (value: number) => void;
+  onLanguagesChange?: (value: number) => void;
 }
