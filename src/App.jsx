@@ -1,9 +1,11 @@
-import { useState } from "react";
+import BudgetCalculator from "./features/budgetCalculator/budgetCalculator";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <h1 className="text-5xl font-extrabold"> Presupuestos</h1>;
+  return (
+    <div>
+    <BudgetCalculator />
+    </div>
+  );
 }
 
 export default App;
