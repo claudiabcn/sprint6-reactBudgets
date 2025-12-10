@@ -14,3 +14,12 @@ export interface ServiceCardProps {
   onPagesChange?: (value: number) => void;
   onLanguagesChange?: (value: number) => void;
 }
+
+export interface Budget {
+  id: string;
+  name: string;
+  client: string;
+  services: Service[];
+  total: number;
+  date: Date;
+}
