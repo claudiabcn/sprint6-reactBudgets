@@ -18,8 +18,16 @@ export interface ServiceCardProps {
 export interface Budget {
   id: string;
   name: string;
+  phone: number;
+  email: string;
   client: string;
   services: Service[];
   total: number;
   date: Date;
+}
+
+export interface BudgetFormProps {
+  services: Service[];
+  budgets: Budget[];
+  setBudgets: (budgets: Budget[]) => void;
 }
