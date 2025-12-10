@@ -31,3 +31,11 @@ export interface BudgetFormProps {
   budgets: Budget[];
   setBudgets: (budgets: Budget[]) => void;
 }
+
+export interface FormInputProps {
+  label: string;
+  type: string;
+  value: string;
+  onChange: (value: string) => void;
+  placeholder: string;
+}
