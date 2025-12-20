@@ -1,6 +1,6 @@
 import { Budget } from "../../config/types";
-import BudgetCard from "./components/BudgetCard";
-import EmptyState from "./components/EmptyState";
+import BudgetCard from "./components/budgetCard";
+import EmptyState from "./components/emptyState";
 
 interface BudgetHistoryProps {
   budgets: Budget[];

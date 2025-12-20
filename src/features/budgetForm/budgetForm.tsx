@@ -1,6 +1,6 @@
 import { BudgetFormProps } from "../../config/types";
 import { useBudgetForm } from "./hooks/useBudgetForm";
-import FormInput from "./components/FormInput";
+import FormInput from "./components/formInput";
 
 function BudgetForm({ services, budgets, setBudgets }: BudgetFormProps) {
   const {

@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { ServiceCardProps } from "../../../config/types";
+import HelpModal from "../components/helpModal";
 
 function ServiceCard({
   service,
@@ -8,6 +10,8 @@ function ServiceCard({
 }: ServiceCardProps) {
   const isWebService = service.id === "web";
   const showWebOptions = isWebService && service.selected;
+  
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="border border-gray-300 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
@@ -31,6 +35,33 @@ function ServiceCard({
 
           {showWebOptions && onPagesChange && onLanguagesChange && (
             <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4">
+
+              <div className="flex items-center justify-between mb-3">
+                <h4 className="text-md font-semibold text-blue-800">
+                  Website Options
+                </h4>
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="text-blue-600 hover:text-blue-800 transition-colors"
+                  title="Ayuda"
+                >
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="h-6 w-6" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" 
+                    />
+                  </svg>
+                </button>
+              </div>
+
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <label className="w-28 text-sm font-medium text-gray-700">
@@ -62,6 +93,11 @@ function ServiceCard({
           )}
         </div>
       </div>
+
+      <HelpModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

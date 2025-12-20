@@ -5,7 +5,7 @@ import BudgetSummary from "../features/budgetCalculator/budgetSummary";
 import BudgetForm from "../features/budgetForm/budgetForm";
 import { useBudgetServices } from "../features/budgetCalculator/hooks/useBudgetServices";
 import { Budget } from "../config/types";
-import BudgetHistory from "../features/bugetHistory.jsx/budgetHistory";
+import BudgetHistory from "../features/bugetHistory/budgetHistory";
 
 function BudgetCalculator() {
   const navigate = useNavigate();

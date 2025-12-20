@@ -2,7 +2,7 @@ import { Service } from "./types";
 
 export const services: Service[] = [
   {
-    id: 'seo',
+    id: "seo",
     name: "🔎 SEO",
     price: 300,
     selected: false,
@@ -10,7 +10,7 @@ export const services: Service[] = [
       "Search engine optimization to increase organic visibility and attract quality traffic.",
   },
   {
-    id: 'ads',
+    id: "ads",
     name: "📢 Advertising",
     price: 400,
     selected: false,
@@ -18,7 +18,7 @@ export const services: Service[] = [
       "Management of paid campaigns (PPC) on platforms such as Google Ads and social media.",
   },
   {
-    id: 'web',
+    id: "web",
     name: "🌐 Website",
     price: 500,
     selected: false,
@@ -28,3 +28,25 @@ export const services: Service[] = [
     languages: 1,
   },
 ];
+
+export const helpModalContent = {
+  title: "ℹ️ Help Information",
+  pages: {
+    title: "📄 Number of Pages",
+    description:
+      "The number of pages refers to the different sections or views your website will have (home, services, contact, etc.). Each additional page increases the project cost.",
+  },
+  languages: {
+    title: "🌍 Number of Languages",
+    description:
+      "Indicates how many languages your website will be available in. A multilingual site allows you to reach a wider audience, but requires translation and adaptation of all content.",
+  },
+  additionalCost: "Additional cost:",
+  formula: "(Pages + Languages) × 30€",
+  closeButton: "Got it",
+};
+
+export const serviceCardTexts = {
+  webOptions: "Website Options",
+  helpButtonTitle: "Help",
+};

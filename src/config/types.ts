@@ -39,3 +39,8 @@ export interface FormInputProps {
   onChange: (value: string) => void;
   placeholder: string;
 }
+
+export interface HelpModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
