@@ -40,6 +40,11 @@ export interface FormInputProps {
   placeholder: string;
 }
 
+export interface BudgetHistoryProps {
+  budgets: Budget[];
+  onDeleteBudget?: (id: string) => void;
+}
+
 export interface HelpModalProps {
   isOpen: boolean;
   onClose: () => void;
