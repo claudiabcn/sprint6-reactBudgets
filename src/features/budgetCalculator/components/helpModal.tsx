@@ -1,21 +1,17 @@
 import { HelpModalProps } from "../../../config/types";
+import { helpModalContent } from "../../../config/appData";
 
 function HelpModal({ isOpen, onClose }: HelpModalProps) {
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
-
-      <div 
-        className="fixed inset-0 bg-black bg-opacity-50"
-        onClick={onClose}
-      />
+      <div className="fixed inset-0 bg-black bg-opacity-50" onClick={onClose} />
 
       <div className="relative bg-white rounded-lg shadow-xl max-w-md w-full mx-4 p-6 z-10">
-
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-xl font-bold text-gray-900">
-            ℹ️ Help Information
+            {helpModalContent.title}
           </h3>
           <button
             onClick={onClose}
@@ -28,29 +24,26 @@ function HelpModal({ isOpen, onClose }: HelpModalProps) {
         <div className="space-y-4">
           <div>
             <h4 className="font-semibold text-gray-800 mb-2">
-              📄 Number of Pages
+              {helpModalContent.pages.title}
             </h4>
             <p className="text-gray-600 text-sm">
-              The number of pages refers to the different sections or views your 
-              website will have (home, services, contact, etc.). Each additional 
-              page increases the project cost.
+              {helpModalContent.pages.description}
             </p>
           </div>
 
           <div>
             <h4 className="font-semibold text-gray-800 mb-2">
-              🌍 Number of Languages
+              {helpModalContent.languages.title}
             </h4>
             <p className="text-gray-600 text-sm">
-              Indicates how many languages your website will be available in. A 
-              multilingual site allows you to reach a wider audience, but requires 
-              translation and adaptation of all content.
+              {helpModalContent.languages.description}
             </p>
           </div>
 
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
             <p className="text-sm text-blue-800">
-              <strong>Additional cost:</strong> (Pages + Languages) × 30€
+              <strong>{helpModalContent.additionalCost}</strong>{" "}
+              {helpModalContent.formula}
             </p>
           </div>
         </div>
