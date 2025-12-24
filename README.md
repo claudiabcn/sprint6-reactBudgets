@@ -1,6 +1,6 @@
 # ⚡️ SPRINT 6: Using React for Budget Calculator
 
-This project is a comprehensive budget calculator application built with **React** and **TypeScript**, allowing users to create, customize, and share service budget estimates.
+This project is a comprehensive budget calculator application built with React and TypeScript, allowing users to create, customize, and share service budget estimates for SEO campaigns, Ads, and web development services.
 
 ## 🎯 Objectives:
 
@@ -30,7 +30,6 @@ SPRINT6-REACTBUDGETS/
 ├── config/
 │ ├── appData.ts
 │ └── types.ts
-│
 ├── common
 │ ├── components/
 │ │ └── button.tsx
@@ -47,7 +46,6 @@ SPRINT6-REACTBUDGETS/
 │ │ ├── utils/
 │ │ │ └── calculateTotal.ts
 │ │ └── BudgetSummary.tsx
-│ │
 │ ├── budgetForm/
 │ │ ├── components/
 │ │ │ └── FormInput.tsx
@@ -56,7 +54,6 @@ SPRINT6-REACTBUDGETS/
 │ ├── utils/
 │ ├── validators.ts
 │ │ └── BudgetForm.tsx
-│ │
 │ └── budgetHistory/
 │ ├── components/
 │ │ ├── BudgetCard.tsx
@@ -64,15 +61,12 @@ SPRINT6-REACTBUDGETS/
 │ ├── utils/
 │ ├── formatters.ts
 │ └── BudgetHistory.tsx
-│
 ├── pages/
 │ ├── BudgetPage.tsx
 │ └── WelcomePage.tsx
-│
 ├── App.jsx
 ├── main.jsx
 └── index.css
-
 ```
 
 ## 🛠 Installation:
@@ -103,8 +97,4 @@ https://sprint6-react-budgets.vercel.app/
 
 ## ⭐ Learnings and challenges:
 
-This sprint represented a significant step in building a full-featured React application with complex state management and URL synchronization. Key learnings included implementing custom hooks for state logic (useBudgetServices, useUrlSync), managing bidirectional URL-state synchronization, and designing a feature-based architecture that promotes scalability and maintainability. The most interesting challenge was creating a shareable URL system that preserves the entire budget configuration, requiring careful handling of query parameters and React Router's useSearchParams. Additionally, implementing the annual discount logic across multiple components reinforced the importance of centralized state management and proper prop drilling strategies. Building reusable components like the Button helped establish consistent UI patterns throughout the application.
-
-```
-
-```
+This sprint represented a significant step in building a full-featured React application with complex state management and URL synchronization. Key learnings included implementing custom hooks for state logic (useBudgetServices, useUrlSync), managing bidirectional URL-state synchronization, and designing a feature-based architecture that promotes scalability and maintainability. The most interesting challenge was creating a shareable URL system that preserves the entire budget configuration, requiring careful handling of query parameters and React Router's useSearchParams. Additionally, implementing the annual discount logic across multiple components reinforced the importance of centralized state management and proper prop drilling strategies. Building reusable components like the button helped establish consistent UI patterns throughout the application.
