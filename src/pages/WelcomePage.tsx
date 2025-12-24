@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import { welcomePageContent } from "../config/appData";
+import Button from "../common/components/button";
 
 function WelcomePage() {
   const navigate = useNavigate();
@@ -12,82 +14,43 @@ function WelcomePage() {
       <div className="max-w-5xl w-full bg-white rounded-2xl shadow-2xl p-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-            Transform Your Digital Presence
+            {welcomePageContent.hero.title}
           </h1>
           <p className="text-xl text-gray-600">
-            Solutions that Drive Real Growth
+            {welcomePageContent.hero.subtitle}
           </p>
         </div>
 
         <div className="space-y-8 mb-12">
-          <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border-l-4 border-green-500">
-            <div className="flex items-start gap-4">
-              <span className="text-3xl">🔎</span>
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  Organic Dominance (SEO)
-                </h2>
-                <p className="text-lg font-semibold text-green-700 mb-3">
-                  Dominate Search. Attract Quality Traffic.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  Go beyond rankings. We implement a strategic, technical SEO
-                  approach that builds authority, increases your organic
-                  visibility, and ensures you capture only the highest-quality
-                  leads searching for your solutions.
-                </p>
+          {welcomePageContent.services.map((service) => (
+            <div
+              key={service.id}
+              className={`bg-gradient-to-r ${service.colorFrom} ${service.colorTo} rounded-xl p-6 border-l-4 ${service.borderColor}`}
+            >
+              <div className="flex items-start gap-4">
+                <span className="text-3xl">{service.emoji}</span>
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                    {service.title}
+                  </h2>
+                  <p
+                    className={`text-lg font-semibold ${service.taglineColor} mb-3`}
+                  >
+                    {service.tagline}
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl p-6 border-l-4 border-orange-500">
-            <div className="flex items-start gap-4">
-              <span className="text-3xl">📢</span>
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  Conversion-Focused Campaigns (Advertising)
-                </h2>
-                <p className="text-lg font-semibold text-orange-700 mb-3">
-                  Ads That Convert. Not Just Impress.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  Stop wasting budget on clicks that don't convert. Our expert
-                  team manages high-performing PPC campaigns across Google Ads
-                  and social media, driving measurable results and maximizing
-                  your return on ad spend (ROAS).
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border-l-4 border-blue-500">
-            <div className="flex items-start gap-4">
-              <span className="text-3xl">🌐</span>
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  High-Performance Website (Website)
-                </h2>
-                <p className="text-lg font-semibold text-blue-700 mb-3">
-                  The Foundation for Growth. Built to Perform.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  A website is your hardest-working employee. We deliver modern,
-                  responsive, and blazing-fast web design and development,
-                  optimized not just for aesthetics, but for seamless user
-                  experience and the highest conversion rates.
-                </p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
 
         <div className="text-center">
-          <button
-            onClick={handleNavigate}
-            className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-          >
-            Get your budget here →
-          </button>
+          <Button onClick={handleNavigate}>
+            {welcomePageContent.cta.buttonText}
+          </Button>
         </div>
       </div>
     </div>

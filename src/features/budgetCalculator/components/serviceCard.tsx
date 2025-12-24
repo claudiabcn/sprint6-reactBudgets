@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { ServiceCardProps } from "../../../config/types";
+import HelpModal from "../components/helpModal";
 
 function ServiceCard({
   service,
@@ -8,6 +10,8 @@ function ServiceCard({
 }: ServiceCardProps) {
   const isWebService = service.id === "web";
   const showWebOptions = isWebService && service.selected;
+  
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="border border-gray-300 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
@@ -31,6 +35,19 @@ function ServiceCard({
 
           {showWebOptions && onPagesChange && onLanguagesChange && (
             <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="flex items-center justify-between mb-3">
+                <h4 className="text-md font-semibold text-blue-800">
+                  Website Options
+                </h4>
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="text-blue-600 hover:text-blue-800 transition-colors text-xl"
+                  title="Help"
+                >
+                  ℹ️
+                </button>
+              </div>
+
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <label className="w-28 text-sm font-medium text-gray-700">
@@ -62,6 +79,11 @@ function ServiceCard({
           )}
         </div>
       </div>
+
+      <HelpModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }
