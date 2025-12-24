@@ -88,9 +88,6 @@ function BudgetHistory({ budgets, onDeleteBudget }: BudgetHistoryProps) {
             <h3 className="text-2xl font-bold text-gray-800">
               History of Budgets
             </h3>
-            <span className="text-sm text-gray-600">
-              {budgets.length} {budgets.length === 1 ? "budget" : "budgets"}
-            </span>
           </div>
 
           <div className="flex gap-2">

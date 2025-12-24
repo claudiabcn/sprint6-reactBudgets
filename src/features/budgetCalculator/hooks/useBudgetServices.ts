@@ -4,6 +4,11 @@ import { services as initialServices } from "../../../config/appData";
 
 export const useBudgetServices = () => {
   const [services, setServices] = useState<Service[]>(initialServices);
+  const [isAnnualPayment, setIsAnnualPayment] = useState(false);
+
+  const toggleAnnualPayment = () => {
+    setIsAnnualPayment(!isAnnualPayment);
+  };
 
   const handleServiceChange = (id: string) => {
     setServices(
@@ -33,6 +38,8 @@ export const useBudgetServices = () => {
 
   return {
     services,
+    isAnnualPayment,
+    toggleAnnualPayment,
     handleServiceChange,
     handlePagesChange,
     handleLanguagesChange,

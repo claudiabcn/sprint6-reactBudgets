@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ServiceCard from "../features/budgetCalculator/components/serviceCard";
 import BudgetSummary from "../features/budgetCalculator/budgetSummary";
 import BudgetForm from "../features/budgetForm/budgetForm";
+import AnnualPaymentToggle from "../features/budgetCalculator/components/Annualpaymenttoggle";
 import { useBudgetServices } from "../features/budgetCalculator/hooks/useBudgetServices";
 import { Budget } from "../config/types";
 import BudgetHistory from "../features/bugetHistory/budgetHistory";
@@ -12,6 +13,8 @@ function BudgetCalculator() {
 
   const {
     services,
+    isAnnualPayment,
+    toggleAnnualPayment,
     handleServiceChange,
     handlePagesChange,
     handleLanguagesChange,
@@ -22,6 +25,7 @@ function BudgetCalculator() {
   const handleGoBack = () => {
     navigate("/");
   };
+
   const handleDeleteBudget = (id: string) => {
     if (window.confirm("Are you sure you want to delete this budget?")) {
       setBudgets(budgets.filter((budget) => budget.id !== id));
@@ -53,6 +57,12 @@ function BudgetCalculator() {
           <h2 className="text-2xl font-bold">Budget</h2>
         </div>
 
+
+        <AnnualPaymentToggle
+          isAnnualPayment={isAnnualPayment}
+          onToggle={toggleAnnualPayment}
+        />
+
         <div className="space-y-4">
           {services.map((service) => (
             <ServiceCard
@@ -69,12 +79,13 @@ function BudgetCalculator() {
           ))}
         </div>
 
-        <BudgetSummary services={services} />
+        <BudgetSummary services={services} isAnnualPayment={isAnnualPayment} />
 
         <BudgetForm
           services={services}
           budgets={budgets}
           setBudgets={setBudgets}
+          isAnnualPayment={isAnnualPayment}
         />
         <BudgetHistory budgets={budgets} onDeleteBudget={handleDeleteBudget} />
       </div>

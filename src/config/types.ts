@@ -24,12 +24,14 @@ export interface Budget {
   services: Service[];
   total: number;
   date: Date;
+  isAnnualPayment: boolean;
 }
 
 export interface BudgetFormProps {
   services: Service[];
   budgets: Budget[];
   setBudgets: (budgets: Budget[]) => void;
+  isAnnualPayment: boolean;
 }
 
 export interface FormInputProps {
@@ -48,4 +50,8 @@ export interface BudgetHistoryProps {
 export interface HelpModalProps {
   isOpen: boolean;
   onClose: () => void;
+}
+export interface AnnualPaymentToggleProps {
+  isAnnualPayment: boolean;
+  onToggle: () => void;
 }

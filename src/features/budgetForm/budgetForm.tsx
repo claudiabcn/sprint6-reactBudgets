@@ -2,7 +2,7 @@ import { BudgetFormProps } from "../../config/types";
 import { useBudgetForm } from "./hooks/useBudgetForm";
 import FormInput from "./components/formInput";
 
-function BudgetForm({ services, budgets, setBudgets }: BudgetFormProps) {
+function BudgetForm({ services, budgets, setBudgets, isAnnualPayment }: BudgetFormProps) {
   const {
     budgetName,
     setBudgetName,
@@ -13,7 +13,7 @@ function BudgetForm({ services, budgets, setBudgets }: BudgetFormProps) {
     clientEmail,
     setClientEmail,
     handleSaveBudget,
-  } = useBudgetForm(services, budgets, setBudgets);
+  } = useBudgetForm(services, budgets, setBudgets, isAnnualPayment);
 
   return (
     <div className="mt-8 p-6 bg-white rounded-lg shadow-md border border-gray-200">

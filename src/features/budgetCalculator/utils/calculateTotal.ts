@@ -1,6 +1,6 @@
 import { Service } from "../../../config/types";
 
-export function calculateTotal(services: Service[]): number {
+export function calculateTotal(services: Service[], isAnnualPayment: boolean = false): number {
   let total = 0;
 
   services.forEach((service) => {
@@ -12,6 +12,11 @@ export function calculateTotal(services: Service[]): number {
       }
     }
   });
+
+
+  if (isAnnualPayment) {
+    total = total * 0.8; 
+  }
 
   return total;
 }

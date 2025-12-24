@@ -11,19 +11,19 @@ export const validateBudgetForm = (
   hasSelectedServices: boolean
 ): string | null => {
   if (!budgetName.trim() || !clientName.trim()) {
-    return 'Por favor completa el nombre del presupuesto y el cliente';
+    return 'Please complete the budget name and client name';
   }
 
   if (!clientPhone.trim() || !clientEmail.trim()) {
-    return 'Por favor completa el teléfono y el email';
+    return 'Please complete the phone number and email';
   }
 
   if (!validateEmail(clientEmail)) {
-    return 'Por favor ingresa un email válido';
+    return 'Please enter a valid email address';
   }
 
   if (!hasSelectedServices) {
-    return 'Por favor selecciona al menos un servicio';
+    return 'Please select at least one service';
   }
 
   return null;

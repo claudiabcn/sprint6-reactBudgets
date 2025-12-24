@@ -29,6 +29,7 @@ function BudgetCard({ budget, onDelete }: BudgetCardProps) {
         <div className="text-right">
           <span className="text-2xl font-bold text-blue-600">
             {formatPrice(budget.total)}
+            
           </span>
         </div>
       </div>

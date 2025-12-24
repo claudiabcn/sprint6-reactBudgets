@@ -1,28 +1,29 @@
-import { useState } from 'react';
-import { Service, Budget } from '../../../config/types';
-import { calculateTotal } from '../../budgetCalculator/utils/calculateTotal';
-import { validateBudgetForm } from '../utils/validators';
+import { useState } from "react";
+import { Service, Budget } from "../../../config/types";
+import { calculateTotal } from "../../budgetCalculator/utils/calculateTotal";
+import { validateBudgetForm } from "../utils/validators";
 
 export function useBudgetForm(
   services: Service[],
   budgets: Budget[],
-  setBudgets: (budgets: Budget[]) => void
+  setBudgets: (budgets: Budget[]) => void,
+  isAnnualPayment: boolean
 ) {
-  const [budgetName, setBudgetName] = useState('');
-  const [clientName, setClientName] = useState('');
-  const [clientPhone, setClientPhone] = useState('');
-  const [clientEmail, setClientEmail] = useState('');
+  const [budgetName, setBudgetName] = useState("");
+  const [clientName, setClientName] = useState("");
+  const [clientPhone, setClientPhone] = useState("");
+  const [clientEmail, setClientEmail] = useState("");
 
   const resetForm = () => {
-    setBudgetName('');
-    setClientName('');
-    setClientPhone('');
-    setClientEmail('');
+    setBudgetName("");
+    setClientName("");
+    setClientPhone("");
+    setClientEmail("");
   };
 
   const handleSaveBudget = () => {
-    const hasSelectedServices = services.some(s => s.selected);
-    
+    const hasSelectedServices = services.some((s) => s.selected);
+
     const error = validateBudgetForm(
       budgetName,
       clientName,
@@ -42,9 +43,10 @@ export function useBudgetForm(
       client: clientName,
       phone: parseInt(clientPhone),
       email: clientEmail,
-      services: services.filter(s => s.selected),
-      total: calculateTotal(services),
-      date: new Date()
+      services: services.filter((s) => s.selected),
+      total: calculateTotal(services, isAnnualPayment),
+      date: new Date(),
+      isAnnualPayment: isAnnualPayment,
     };
 
     setBudgets([...budgets, newBudget]);
@@ -60,6 +62,6 @@ export function useBudgetForm(
     setClientPhone,
     clientEmail,
     setClientEmail,
-    handleSaveBudget
+    handleSaveBudget,
   };
 }
