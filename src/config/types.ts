@@ -58,3 +58,11 @@ export interface AnnualPaymentToggleProps {
 export interface ShareButtonProps {
   getShareableUrl: () => string;
 }
+
+export interface ButtonProps {
+  onClick: () => void;
+  children: React.ReactNode;
+  variant?: "primary" | "secondary";
+  type?: "button" | "submit";
+  fullWidth?: boolean;
+}

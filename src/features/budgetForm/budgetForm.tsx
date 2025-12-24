@@ -1,6 +1,7 @@
 import { BudgetFormProps } from "../../config/types";
 import { useBudgetForm } from "./hooks/useBudgetForm";
 import FormInput from "./components/formInput";
+import Button from "../../common/components/button";
 
 function BudgetForm({ services, budgets, setBudgets, isAnnualPayment }: BudgetFormProps) {
   const {
@@ -52,12 +53,9 @@ function BudgetForm({ services, budgets, setBudgets, isAnnualPayment }: BudgetFo
           placeholder="Ex: claudiabcn@gmail.com"
         />
 
-        <button
-          onClick={handleSaveBudget}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md transition-colors"
-        >
+        <Button onClick={handleSaveBudget} fullWidth>
           Send request
-        </button>
+        </Button>
       </div>
     </div>
   );

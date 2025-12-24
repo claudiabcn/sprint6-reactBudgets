@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ShareButtonProps } from "../../../config/types";
+import Button from "../../../common/components/button";
 
 const ShareButton = ({ getShareableUrl }: ShareButtonProps) => {
   const [copied, setCopied] = useState(false);
@@ -17,12 +18,9 @@ const ShareButton = ({ getShareableUrl }: ShareButtonProps) => {
   };
 
   return (
-    <button
-      onClick={handleShare}
-      className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition-colors"
-    >
+    <Button onClick={handleShare}>
       {copied ? "✓ Copied!" : "Share Budget"}
-    </button>
+    </Button>
   );
 };
 

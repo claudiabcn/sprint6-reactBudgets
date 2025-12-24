@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { welcomePageContent } from "../config/appData";
+import Button from "../common/components/button";
 
 function WelcomePage() {
   const navigate = useNavigate();
@@ -47,12 +48,9 @@ function WelcomePage() {
         </div>
 
         <div className="text-center">
-          <button
-            onClick={handleNavigate}
-            className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-          >
+          <Button onClick={handleNavigate}>
             {welcomePageContent.cta.buttonText}
-          </button>
+          </Button>
         </div>
       </div>
     </div>
