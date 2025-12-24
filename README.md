@@ -19,6 +19,7 @@ This project is a comprehensive budget calculator application built with **React
 
 ## 📋 Files:
 
+```
 SPRINT6-REACTBUDGETS/
 ├── .gitignore
 ├── package.json
@@ -72,8 +73,7 @@ SPRINT6-REACTBUDGETS/
 ├── main.jsx
 └── index.css
 
-````
-
+```
 
 ## 🛠 Installation:
 
@@ -104,4 +104,7 @@ https://sprint6-react-budgets.vercel.app/
 ## ⭐ Learnings and challenges:
 
 This sprint represented a significant step in building a full-featured React application with complex state management and URL synchronization. Key learnings included implementing custom hooks for state logic (useBudgetServices, useUrlSync), managing bidirectional URL-state synchronization, and designing a feature-based architecture that promotes scalability and maintainability. The most interesting challenge was creating a shareable URL system that preserves the entire budget configuration, requiring careful handling of query parameters and React Router's useSearchParams. Additionally, implementing the annual discount logic across multiple components reinforced the importance of centralized state management and proper prop drilling strategies. Building reusable components like the Button helped establish consistent UI patterns throughout the application.
-````
+
+```
+
+```
