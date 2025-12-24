@@ -4,7 +4,7 @@ import ServiceCard from "../features/budgetCalculator/components/serviceCard";
 import BudgetSummary from "../features/budgetCalculator/budgetSummary";
 import BudgetForm from "../features/budgetForm/budgetForm";
 import AnnualPaymentToggle from "../features/budgetCalculator/components/paymentToggle";
-import ShareButton from "../features/budgetCalculator/components/ShareButton";
+import ShareButton from "../features/budgetCalculator/components/shareButton";
 import { useBudgetServices } from "../features/budgetCalculator/hooks/useBudgetServices";
 import { useUrlSync } from "../features/budgetCalculator/hooks/useUrlSync";
 import { Budget } from "../config/types";
@@ -44,16 +44,16 @@ function BudgetCalculator() {
   };
 
   return (
-<div className="min-h-screen bg-gray-50 py-8">
-  <div className="p-8 max-w-4xl mx-auto">
-    <div className="flex justify-between items-center mb-6">
-      <button
-        onClick={handleGoBack}
-        className="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors"
-      >
-        ← Return to Welcome Page
-      </button>
-          
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="p-8 max-w-4xl mx-auto">
+        <div className="flex justify-between items-center mb-6">
+          <button
+            onClick={handleGoBack}
+            className="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors"
+          >
+            ← Return to Welcome Page
+          </button>
+
           <div className="flex items-center gap-4">
             <h2 className="text-2xl font-bold">Budget</h2>
             <ShareButton getShareableUrl={getShareableUrl} />
