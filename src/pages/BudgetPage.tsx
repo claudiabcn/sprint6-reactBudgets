@@ -4,7 +4,7 @@ import ServiceCard from "../features/budgetCalculator/components/serviceCard";
 import BudgetSummary from "../features/budgetCalculator/budgetSummary";
 import BudgetForm from "../features/budgetForm/budgetForm";
 import AnnualPaymentToggle from "../features/budgetCalculator/components/paymentToggle";
-import ShareButton from "../features/budgetCalculator/components/ShareButton";
+import ShareButton from "../features/budgetCalculator/components/shareButton";
 import { useBudgetServices } from "../features/budgetCalculator/hooks/useBudgetServices";
 import { useUrlSync } from "../features/budgetCalculator/hooks/useUrlSync";
 import { Budget } from "../config/types";
