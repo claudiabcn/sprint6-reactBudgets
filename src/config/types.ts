@@ -55,3 +55,6 @@ export interface AnnualPaymentToggleProps {
   isAnnualPayment: boolean;
   onToggle: () => void;
 }
+export interface ShareButtonProps {
+  getShareableUrl: () => string;
+}

@@ -38,7 +38,9 @@ export const useBudgetServices = () => {
 
   return {
     services,
+    setServices,  
     isAnnualPayment,
+    setIsAnnualPayment,
     toggleAnnualPayment,
     handleServiceChange,
     handlePagesChange,

@@ -13,10 +13,8 @@ export function calculateTotal(services: Service[], isAnnualPayment: boolean = f
     }
   });
 
-
   if (isAnnualPayment) {
     total = total * 0.8; 
   }
-
   return total;
 }
