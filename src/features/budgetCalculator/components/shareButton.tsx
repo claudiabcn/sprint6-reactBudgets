@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ShareButtonProps } from "../../../config/types";
 import Button from "../../../common/components/button";
 
-export const ShareButton = ({ getShareableUrl }: ShareButtonProps) => {
+const ShareButton = ({ getShareableUrl }: ShareButtonProps) => {
   const [copied, setCopied] = useState(false);
 
   const handleShare = async () => {
