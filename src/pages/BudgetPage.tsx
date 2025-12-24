@@ -12,7 +12,6 @@ import BudgetHistory from "../features/bugetHistory/budgetHistory";
 
 function BudgetCalculator() {
   const navigate = useNavigate();
-
   const {
     services,
     setServices,
