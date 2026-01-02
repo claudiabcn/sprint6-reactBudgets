@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { Service, Budget } from "../../../config/types";
 import { calculateTotal } from "../../budgetCalculator/utils/calculateTotal";
-import { validateBudgetForm } from "../utils/validators";
+import {
+  getBudgetNameError,
+  getClientNameError,
+  getPhoneError,
+  getEmailError,
+} from "../utils/validators";
 
 export function useBudgetForm(
   services: Service[],
@@ -13,27 +18,44 @@ export function useBudgetForm(
   const [clientName, setClientName] = useState("");
   const [clientPhone, setClientPhone] = useState("");
   const [clientEmail, setClientEmail] = useState("");
+  const [errors, setErrors] = useState({
+    budgetName: "",
+    clientName: "",
+    phone: "",
+    email: "",
+    services: "",
+  });
 
   const resetForm = () => {
     setBudgetName("");
     setClientName("");
     setClientPhone("");
     setClientEmail("");
+    setErrors({
+      budgetName: "",
+      clientName: "",
+      phone: "",
+      email: "",
+      services: "",
+    });
   };
 
   const handleSaveBudget = () => {
     const hasSelectedServices = services.some((s) => s.selected);
 
-    const error = validateBudgetForm(
-      budgetName,
-      clientName,
-      clientPhone,
-      clientEmail,
-      hasSelectedServices
-    );
+    const newErrors = {
+      budgetName: getBudgetNameError(budgetName),
+      clientName: getClientNameError(clientName),
+      phone: getPhoneError(clientPhone),
+      email: getEmailError(clientEmail),
+      services: hasSelectedServices ? "" : "Please select at least one service",
+    };
 
-    if (error) {
-      alert(error);
+    setErrors(newErrors);
+
+    const hasErrors = Object.values(newErrors).some((error) => error !== "");
+
+    if (hasErrors) {
       return;
     }
 
@@ -62,6 +84,8 @@ export function useBudgetForm(
     setClientPhone,
     clientEmail,
     setClientEmail,
+    errors,
+    setErrors,
     handleSaveBudget,
   };
 }

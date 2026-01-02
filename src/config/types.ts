@@ -40,6 +40,7 @@ export interface FormInputProps {
   value: string;
   onChange: (value: string) => void;
   placeholder: string;
+  error?: string;
 }
 
 export interface BudgetSummaryProps {

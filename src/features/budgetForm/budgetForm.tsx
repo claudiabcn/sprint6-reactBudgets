@@ -2,6 +2,12 @@ import { BudgetFormProps } from "../../config/types";
 import { useBudgetForm } from "./hooks/useBudgetForm";
 import FormInput from "./components/FormInput";
 import Button from "../../common/components/button";
+import {
+  getBudgetNameError,
+  getClientNameError,
+  getPhoneError,
+  getEmailError,
+} from "./utils/validators";
 
 function BudgetForm({
   services,
@@ -18,6 +24,8 @@ function BudgetForm({
     setClientPhone,
     clientEmail,
     setClientEmail,
+    errors,
+    setErrors,
     handleSaveBudget,
   } = useBudgetForm(services, budgets, setBudgets, isAnnualPayment);
 
@@ -30,33 +38,53 @@ function BudgetForm({
           label="Budget name"
           type="text"
           value={budgetName}
-          onChange={setBudgetName}
+          onChange={(val) => {
+            setBudgetName(val);
+            setErrors({ ...errors, budgetName: getBudgetNameError(val) });
+          }}
           placeholder="Ex: Project Web 2026"
+          error={errors.budgetName}
         />
 
         <FormInput
           label="Client name"
           type="text"
           value={clientName}
-          onChange={setClientName}
+          onChange={(val) => {
+            setClientName(val);
+            setErrors({ ...errors, clientName: getClientNameError(val) });
+          }}
           placeholder="Ex: IT Academy"
+          error={errors.clientName}
         />
 
         <FormInput
           label="Phone"
           type="tel"
           value={clientPhone}
-          onChange={setClientPhone}
+          onChange={(val) => {
+            setClientPhone(val);
+            setErrors({ ...errors, phone: getPhoneError(val) });
+          }}
           placeholder="Ex: 667854477"
+          error={errors.phone}
         />
 
         <FormInput
           label="Email"
           type="email"
           value={clientEmail}
-          onChange={setClientEmail}
+          onChange={(val) => {
+            setClientEmail(val);
+            setErrors({ ...errors, email: getEmailError(val) });
+          }}
           placeholder="Ex: claudiabcn@gmail.com"
+          error={errors.email}
         />
+
+        {errors.services && (
+          <p className="text-sm text-red-600">{errors.services}</p>
+        )}
 
         <Button onClick={handleSaveBudget} fullWidth>
           Send request

@@ -7,6 +7,28 @@ export const validatePhone = (phone: string): boolean => {
   return /^\d+$/.test(phone.trim());
 };
 
+export const getPhoneError = (phone: string): string => {
+  if (!phone.trim()) return "Phone number is required";
+  if (!validatePhone(phone)) return "Phone number must contain only digits";
+  return "";
+};
+
+export const getEmailError = (email: string): string => {
+  if (!email.trim()) return "Email is required";
+  if (!validateEmail(email)) return "Please enter a valid email address";
+  return "";
+};
+
+export const getBudgetNameError = (budgetName: string): string => {
+  if (!budgetName.trim()) return "Budget name is required";
+  return "";
+};
+
+export const getClientNameError = (clientName: string): string => {
+  if (!clientName.trim()) return "Client name is required";
+  return "";
+};
+
 export const validateBudgetForm = (
   budgetName: string,
   clientName: string,
@@ -14,21 +36,17 @@ export const validateBudgetForm = (
   clientEmail: string,
   hasSelectedServices: boolean
 ): string | null => {
-  if (!budgetName.trim() || !clientName.trim()) {
-    return "Please complete the budget name and client name";
-  }
+  const budgetNameError = getBudgetNameError(budgetName);
+  if (budgetNameError) return budgetNameError;
 
-  if (!clientPhone.trim() || !clientEmail.trim()) {
-    return "Please complete the phone number and email";
-  }
+  const clientNameError = getClientNameError(clientName);
+  if (clientNameError) return clientNameError;
 
-  if (!validatePhone(clientPhone)) {
-    return "Please enter a valid phone number";
-  }
+  const phoneError = getPhoneError(clientPhone);
+  if (phoneError) return phoneError;
 
-  if (!validateEmail(clientEmail)) {
-    return "Please enter a valid email address";
-  }
+  const emailError = getEmailError(clientEmail);
+  if (emailError) return emailError;
 
   if (!hasSelectedServices) {
     return "Please select at least one service";
