@@ -13,6 +13,7 @@ export interface ServiceCardProps {
   onChange: (id: string) => void;
   onPagesChange?: (value: number) => void;
   onLanguagesChange?: (value: number) => void;
+  isAnnualPayment: boolean;
 }
 
 export interface Budget {

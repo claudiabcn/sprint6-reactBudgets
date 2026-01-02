@@ -76,6 +76,7 @@ function BudgetCalculator() {
               onLanguagesChange={
                 service.id === "web" ? handleLanguagesChange : undefined
               }
+              isAnnualPayment={isAnnualPayment}
             />
           ))}
         </div>

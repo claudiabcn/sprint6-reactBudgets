@@ -24,11 +24,7 @@ const BudgetSummary = ({ services, isAnnualPayment }: BudgetSummaryProps) => {
       )}
 
       <h3 className="text-xl font-bold">Total price: {totalWithDiscount}€</h3>
-      {isAnnualPayment && (
-        <p className="text-sm text-gray-600 mt-1">
-          Annual payment with 20% discount
-        </p>
-      )}
+    
     </div>
   );
 };
