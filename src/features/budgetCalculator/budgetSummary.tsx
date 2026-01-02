@@ -1,10 +1,6 @@
 import { calculateTotal } from "./utils/calculateTotal";
-import { Service } from "../../config/types";
+import { BudgetSummaryProps } from "../../config/types";
 
-interface BudgetSummaryProps {
-  services: Service[];
-  isAnnualPayment: boolean;
-}
 
 const BudgetSummary = ({ services, isAnnualPayment }: BudgetSummaryProps) => {
   const totalWithoutDiscount = calculateTotal(services, false);

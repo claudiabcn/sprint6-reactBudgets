@@ -42,6 +42,11 @@ export interface FormInputProps {
   placeholder: string;
 }
 
+export interface BudgetSummaryProps {
+  services: Service[];
+  isAnnualPayment: boolean;
+}
+
 export interface BudgetHistoryProps {
   budgets: Budget[];
   onDeleteBudget?: (id: string) => void;
