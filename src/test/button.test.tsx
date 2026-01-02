@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Button from "../common/components/Button";
 
@@ -14,20 +14,20 @@ describe("Button Component", () => {
     render(<Button onClick={() => {}}>Primary Button</Button>);
     const button = screen.getByRole("button");
     
-    expect(button).toHaveClass("from-blue-600", "to-indigo-600");
+    expect(button).toHaveClass("button-primary");
   });
 
   it("should render with secondary variant when specified", () => {
     render(<Button variant="secondary" onClick={() => {}}>Secondary Button</Button>);
     const button = screen.getByRole("button");
     
-    expect(button).toHaveClass("from-indigo-600", "to-purple-600");
+    expect(button).toHaveClass("button-secondary");
   });
 
   it("should apply full width class when fullWidth is true", () => {
     render(<Button fullWidth onClick={() => {}}>Full Width</Button>);
     
-    expect(screen.getByRole("button")).toHaveClass("w-full");
+    expect(screen.getByRole("button")).toHaveClass("button-full");
   });
 
   it("should have correct type attribute", () => {
@@ -40,7 +40,16 @@ describe("Button Component", () => {
     render(<Button onClick={() => {}}>Styled Button</Button>);
     const button = screen.getByRole("button");
     
-    expect(button).toHaveClass("font-bold", "text-lg", "rounded-lg");
+    expect(button).toHaveClass("button");
   });
 
+  it("should call onClick when clicked", () => {
+    const handleClick = vi.fn();
+    render(<Button onClick={handleClick}>Clickable</Button>);
+    
+    const button = screen.getByRole("button");
+    fireEvent.click(button);
+    
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
 });
