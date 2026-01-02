@@ -26,46 +26,43 @@ function BudgetHistory({ budgets, onDeleteBudget }: BudgetHistoryProps) {
     );
   };
 
-  const sortAlphabetically = () => {
-    if (currentSort === "alphabetical") {
+  const handleSort = (
+    sortType: SortType,
+    sortFn: (a: any, b: any, direction: SortDirection) => number,
+    defaultDirection: SortDirection = "asc"
+  ) => {
+    if (currentSort === sortType) {
       const newDirection = sortDirection === "asc" ? "desc" : "asc";
       setSortDirection(newDirection);
-
-      const sorted = [...budgets].sort((a, b) =>
-        newDirection === "asc"
-          ? a.name.localeCompare(b.name)
-          : b.name.localeCompare(a.name)
-      );
+      const sorted = [...budgets].sort((a, b) => sortFn(a, b, newDirection));
       setSortedBudgets(sorted);
     } else {
-      setCurrentSort("alphabetical");
-      setSortDirection("asc");
-
-      const sorted = [...budgets].sort((a, b) => a.name.localeCompare(b.name));
+      setCurrentSort(sortType);
+      setSortDirection(defaultDirection);
+      const sorted = [...budgets].sort((a, b) => sortFn(a, b, defaultDirection));
       setSortedBudgets(sorted);
     }
   };
 
+  const sortAlphabetically = () => {
+    handleSort(
+      "alphabetical",
+      (a, b, direction) =>
+        direction === "asc"
+          ? a.name.localeCompare(b.name)
+          : b.name.localeCompare(a.name)
+    );
+  };
+
   const sortByDate = () => {
-    if (currentSort === "date") {
-      const newDirection = sortDirection === "asc" ? "desc" : "asc";
-      setSortDirection(newDirection);
-
-      const sorted = [...budgets].sort((a, b) =>
-        newDirection === "asc"
+    handleSort(
+      "date",
+      (a, b, direction) =>
+        direction === "asc"
           ? new Date(a.date).getTime() - new Date(b.date).getTime()
-          : new Date(b.date).getTime() - new Date(a.date).getTime()
-      );
-      setSortedBudgets(sorted);
-    } else {
-      setCurrentSort("date");
-      setSortDirection("desc");
-
-      const sorted = [...budgets].sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-      );
-      setSortedBudgets(sorted);
-    }
+          : new Date(b.date).getTime() - new Date(a.date).getTime(),
+      "desc"
+    );
   };
 
   const resetOrder = () => {

@@ -13,7 +13,8 @@ const ShareButton = ({ getShareableUrl }: ShareButtonProps) => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      alert(`Share this URL:\n${url}`);
+      const errorMessage = err instanceof Error ? err.message : "Unknown error";
+      alert(`Failed to copy to clipboard: ${errorMessage}\n\nYou can manually copy this URL:\n${url}`);
     }
   };
 
