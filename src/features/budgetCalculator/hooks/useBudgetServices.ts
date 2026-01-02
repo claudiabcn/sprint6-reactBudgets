@@ -11,8 +11,8 @@ export const useBudgetServices = () => {
   };
 
   const handleServiceChange = (id: string) => {
-    setServices(
-      services.map((service) =>
+    setServices((prevServices) =>
+      prevServices.map((service) =>
         service.id === id
           ? { ...service, selected: !service.selected }
           : service
@@ -21,16 +21,16 @@ export const useBudgetServices = () => {
   };
 
   const handlePagesChange = (value: number) => {
-    setServices(
-      services.map((service) =>
+    setServices((prevServices) =>
+      prevServices.map((service) =>
         service.id === "web" ? { ...service, pages: value } : service
       )
     );
   };
 
   const handleLanguagesChange = (value: number) => {
-    setServices(
-      services.map((service) =>
+    setServices((prevServices) =>
+      prevServices.map((service) =>
         service.id === "web" ? { ...service, languages: value } : service
       )
     );
@@ -38,7 +38,7 @@ export const useBudgetServices = () => {
 
   return {
     services,
-    setServices,  
+    setServices,
     isAnnualPayment,
     setIsAnnualPayment,
     toggleAnnualPayment,

@@ -1,12 +1,6 @@
 import { Service } from "../../../config/types";
 
-const PAGE_PRICE = 30;
-const LANGUAGE_PRICE = 30;
-
-export function calculateTotal(
-  services: Service[],
-  discountPercent: number = 0
-): number {
+export function calculateTotal(services: Service[], isAnnualPayment: boolean = false): number {
   let total = 0;
 
   services.forEach((service) => {
@@ -14,15 +8,13 @@ export function calculateTotal(
       total += service.price;
 
       if (service.id === "web" && service.pages && service.languages) {
-        total += service.pages * PAGE_PRICE;
-        total += service.languages * LANGUAGE_PRICE;
+        total += (service.pages + service.languages) * 30;
       }
     }
   });
 
-  if (discountPercent > 0) {
-    total = total * (1 - discountPercent / 100);
+  if (isAnnualPayment) {
+    total = total * 0.8; 
   }
-
   return total;
 }
